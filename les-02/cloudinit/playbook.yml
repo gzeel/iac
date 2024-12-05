@@ -1,0 +1,16 @@
+---
+- hosts: app
+  become: true
+
+  tasks:
+  - name: Ensure chrony is installed
+    apt:
+      name: chrony
+      state: present
+
+  - name: Ensure chrony is started
+    service:
+      name: chronyd
+      state: started
+      enabled: true
+
